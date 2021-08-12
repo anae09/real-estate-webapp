@@ -17,7 +17,7 @@ type-multer: https://www.npmjs.com/package/@types/multer <br/>
 
 ## Run Project
 
-Start mongodb. <br/>
+Start mongodb and import files from mongodump. <br/>
 
 In one terminal:
 ```
