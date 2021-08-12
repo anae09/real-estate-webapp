@@ -31,4 +31,8 @@ In other terminal:
 cd frontend/app
 ng serve --open
 ```
+<br/>
+![pia](https://user-images.githubusercontent.com/79768470/129181998-2d732b34-a9e1-4b3c-8ee6-526e97059eb0.gif)
+
+
 
