@@ -1,4 +1,4 @@
-# Real Estate Agency Website
+# Real Estate Agency Web Application
 
 Real estate agency web application created as a school project in Angular and Node.js
 
