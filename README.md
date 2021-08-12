@@ -34,6 +34,8 @@ ng serve --open
 ```
 <br/>
 ![pia](https://user-images.githubusercontent.com/79768470/129181998-2d732b34-a9e1-4b3c-8ee6-526e97059eb0.gif)
+![nekretnina](https://user-images.githubusercontent.com/79768470/129187580-cf04bc49-1494-4da6-bf55-5cc9a89cfa10.gif)
+
 
 
 
