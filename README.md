@@ -1,6 +1,6 @@
 # Real Estate Agency Website
 
-Real estate agency website created as a school project in Angular and Node.js
+Real estate agency web application created as a school project in Angular and Node.js
 
 ## Required Libraries
 Frontend: <br/>
