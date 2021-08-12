@@ -1,0 +1,33 @@
+mat-form-field {
+  width: 100%;
+}
+
+:host {
+  text-align: center;
+}
+
+main {
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.radio-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px 0;
+}
+
+mat-radio-button {
+  margin: 5px;
+}
+
+mat-label {
+  margin-right: 10px;
+}
+
+#novi_korisnik {
+  margin-top: 50px;
+}

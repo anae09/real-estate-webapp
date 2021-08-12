@@ -1,0 +1,48 @@
+<main>
+  <mat-card *ngIf="form">
+    <h2>Izmena lozinke</h2>
+    <form (submit)="izmeniSifru()" [formGroup]="form">
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          name="lozinka"
+          placeholder="Stara lozinka"
+          required
+          formControlName="staraLozinka"
+        />
+        <mat-error *ngIf="form.get('staraLozinka').invalid"
+          >Obavezno polje</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          name="lozinka"
+          placeholder="Nova lozinka"
+          required
+          formControlName="lozinka"
+        />
+        <mat-error *ngIf="form.get('lozinka').invalid"
+          >Obavezno polje</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          name="lozinka-ponovo"
+          placeholder="Ponovite lozinku"
+          required
+          formControlName="ponovljenaLozinka"
+        />
+        <mat-error *ngIf="form.get('ponovljenaLozinka').invalid"
+          >Obavezno polje</mat-error
+        >
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Potvrdi</button>
+      <p style="color:red">{{poruka}}</p>
+    </form>
+  </mat-card>
+</main>

@@ -1,0 +1,31 @@
+
+  <mat-card>
+    <h2>Login</h2>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="korisnickoIme"
+          placeholder="Korisnicko ime"
+          [(ngModel)]="korime"
+          required
+        />
+        <mat-error>Obavezno polje</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          name="lozinka"
+          placeholder="Lozinka"
+          [(ngModel)]="lozinka"
+          required
+        />
+        <mat-error>Obavezno polje</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+    </form>
+    <p class="poruka">{{poruka}}</p>
+  </mat-card>
+

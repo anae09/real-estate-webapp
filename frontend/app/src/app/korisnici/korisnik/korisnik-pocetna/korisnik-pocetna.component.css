@@ -1,0 +1,39 @@
+mat-form-field {
+  width: 100%;
+}
+
+:host {
+  text-align: center;
+}
+
+.spacer {
+  height: 100px;
+}
+
+#pretraga {
+  margin-top: 50px;
+}
+
+/* mat-grid-tile {
+  background: lightblue;
+} */
+
+mat-card-content p {
+  width: 100%;
+}
+
+mat-card {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+}
+
+mat-card img {
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 40%;
+}
+
+.wrapper {
+  padding-bottom: 100px;
+}
+

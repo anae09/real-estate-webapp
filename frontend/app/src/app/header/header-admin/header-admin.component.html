@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <span>PIA2021</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink='/admin'>Pocetna</button>
+  <button mat-button routerLink='moje-nekretnine'>Moje nekretnine</button>
+  <button mat-button [matMenuTriggerFor]='pregled'>Pregled</button>
+  <mat-menu #pregled>
+    <button mat-menu-item routerLink='korisnici'>Korisnici</button>
+    <button mat-menu-item routerLink='pregled-nekretnine'>Nekretnine</button>
+    <button mat-menu-item routerLink='pregled-ponude'>Ponude</button>
+  </mat-menu>
+  <button mat-button routerLink='ugovori'>Ugovori</button>
+  <button mat-button >Inbox</button>
+  <button mat-button routerLink='profil'>Profil</button>
+  <button mat-button (click)='odjava()'>Odjava</button>
+</mat-toolbar>

@@ -1,0 +1,16 @@
+<div class="kontakt">
+  <button color="primary" class="kontakt-dugme" (click)='prikaziKontakt()'>KONTAKTIRAJ VLASNIKA</button>
+  <mat-card *ngIf='prikaz'>
+  <h2>Kontakt</h2>
+  <form>
+    <mat-form-field>
+      <input matInput type="text" name="naslov" placeholder="Naslov"/>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput name="poruka" placeholder="Poruka..." rows="5"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Posalji</button>
+  </form>
+</mat-card>
+</div>
+

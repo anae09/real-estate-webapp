@@ -1,0 +1,86 @@
+<main *ngIf='form'>
+  <mat-card >
+    <h2>Izmena</h2>
+    <form (submit)="izmeniKorisnika()" [formGroup]="form">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="ime"
+          placeholder="Ime"
+          required
+          formControlName="ime"
+        />
+        <mat-error *ngIf="form.get('ime').invalid">Obavezno polje</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="prezime"
+          placeholder="Prezime"
+          required
+          formControlName="prezime"
+        />
+        <mat-error *ngIf="form.get('prezime').invalid">Obavezno polje</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="korisnickoIme"
+          placeholder="Korisnicko ime"
+          required
+          formControlName="korime"
+        />
+        <mat-error *ngIf="form.get('korime').invalid">Obavezno polje</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="E-mail"
+          required
+          formControlName="email"
+        />
+        <mat-error *ngIf="form.get('email').invalid">Obavezno polje</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="grad"
+          placeholder="Grad"
+          required
+          formControlName="grad"
+        />
+        <mat-error *ngIf="form.get('grad').invalid">Obavezno polje</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="drzava"
+          placeholder="Drzava"
+          required
+          formControlName="drzava"
+        />
+        <mat-error *ngIf="form.get('drzava').invalid">Obavezno polje</mat-error>
+      </mat-form-field>
+      <!-- <div class="radio-container">
+        <mat-label>Tip:</mat-label>
+        <mat-radio-group formControlName="tip">
+          <mat-radio-button value="agent">Agent</mat-radio-button>
+          <mat-radio-button value="korisnik">Korisnik</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="form.get('tip').invalid">Obavezno polje</mat-error>
+      </div> -->
+      <button mat-raised-button color="primary" type="submit">
+        Izmeni
+      </button>
+    </form>
+    <p class="poruka">{{ poruka }}</p>
+  </mat-card>
+</main>
+

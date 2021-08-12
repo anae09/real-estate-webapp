@@ -1,0 +1,15 @@
+<p *ngIf='pieChartLabels.length === 0'>Nema podataka za stanove</p>
+<div *ngIf='pieChartLabels.length > 0'>
+  <div>
+    <div class="chart">
+      <canvas baseChart
+        [data]="pieChartData"
+        [labels]="pieChartLabels"
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [colors]="pieChartColors"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
+  </div>
+</div>

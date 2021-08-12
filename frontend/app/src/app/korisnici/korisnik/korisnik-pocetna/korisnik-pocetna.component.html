@@ -1,0 +1,40 @@
+<!-- <div class="wrapper"> -->
+<app-promocija></app-promocija>
+<mat-card id="pretraga">
+  <h2>Pretraga</h2>
+  <form>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Grad" name="grad" [(ngModel)]="grad" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Cena od [$]" name="cenaOd" [(ngModel)]="cenaOd" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Cena do [$]" name="cenaDo" [(ngModel)]="cenaDo" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="pretraga()">Pretraga</button>
+    <p style="color:red">{{poruka}}</p>
+  </form>
+</mat-card>
+<div class="spacer"></div>
+<mat-grid-list cols="3" rowHeight="2:3" *ngIf='nekretninePregled.length > 0'>
+  <mat-grid-tile *ngFor='let n of nekretninePregled'>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{iseciTekst(n.naziv)}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{n.slike[0]}}" />
+      <mat-card-content>
+        <p>Opstina: {{n.opstina}}</p>
+        <p>Grad: {{n.grad}}</p>
+        <p>Cena: {{n.cena}}$</p>
+        <p>Kategorija: {{n.kategorija}}</p>
+        <p>Kvadratura: {{n.kvadratura}}m2</p>
+      </mat-card-content>
+      <mat-card-footer>
+        <button *ngIf="korisnik && korisnik.status!== 'gost'" mat-raised-button routerLink='nekretnina/{{n._id}}'>Pogledaj vise</button>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+<!-- </div> -->

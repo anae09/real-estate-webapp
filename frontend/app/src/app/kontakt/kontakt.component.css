@@ -1,0 +1,31 @@
+mat-form-field {
+  width: 100%;
+}
+
+:host {
+  text-align: center;
+}
+
+.kontakt {
+  margin: 50px auto;
+}
+
+.kontakt-dugme {
+  width: 70%;
+  margin: auto;
+  font-size: medium;
+  padding: 10px 0;
+  letter-spacing: 0.8px;
+  margin-bottom: 30px;
+  background-color: white;
+  color: rgba(0,0,0, 0.8);
+  border: 2px solid #3F51B5;
+  transition-duration: 0.4s;
+
+}
+
+.kontakt-dugme:hover {
+  background-color: #3F51B5;
+  color: white;
+  cursor: pointer;
+}

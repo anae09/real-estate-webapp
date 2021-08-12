@@ -1,0 +1,14 @@
+mat-form-field {
+  width: 100%;
+}
+
+:host {
+  text-align: center;
+}
+
+.poruka {
+  color: red;
+  padding: 10px 10px;
+}
+
+

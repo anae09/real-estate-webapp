@@ -1,0 +1,50 @@
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear:both;
+}
+
+img, video {
+  width: 200px;
+  height: auto;
+}
+
+.fajlovi-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  margin: 15px 0;
+}
+
+.fajlovi-container p {
+  margin-right: 15px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.radio-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px 0;
+}
+
+mat-radio-button {
+  margin: 5px;
+}
+
+mat-label {
+  margin-right: 10px;
+}
+
+mat-card {
+  text-align: center;
+}

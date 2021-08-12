@@ -1,0 +1,117 @@
+<div class="wrapper">
+<mat-card>
+  <h2>Registracija</h2>
+  <form (submit)="dodajKorisnika()" [formGroup]="form">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="ime"
+        placeholder="Ime"
+        required
+        formControlName="ime"
+      />
+      <mat-error *ngIf="form.get('ime').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="prezime"
+        placeholder="Prezime"
+        required
+        formControlName="prezime"
+      />
+      <mat-error *ngIf="form.get('prezime').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="korisnickoIme"
+        placeholder="Korisnicko ime"
+        required
+        formControlName="korime"
+      />
+      <mat-error *ngIf="form.get('korime').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        name="lozinka"
+        placeholder="Lozinka"
+        required
+        formControlName="lozinka"
+        min="8"
+        max="24"
+      />
+      <mat-error *ngIf="form.get('lozinka').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <p class="lozinka-hint">Lozinka mora imati minimum 8, maksimum 24 karaktera, barem 1 veliko slovo, barem 1 malo slovo, 1 cifru, 1 specijalan karakter i najvise 3 uzastopnih karaktera</p>
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        name="lozinka-ponovo"
+        placeholder="Ponovite lozinku"
+        required
+        formControlName="ponovljenaLozinka"
+      />
+      <mat-error *ngIf="form.get('ponovljenaLozinka').invalid"
+        >Obavezno polje</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        required
+        formControlName="email"
+      />
+      <mat-error *ngIf="form.get('email').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="grad"
+        placeholder="Grad"
+        required
+        formControlName="grad"
+      />
+      <mat-error *ngIf="form.get('grad').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="drzava"
+        placeholder="Drzava"
+        required
+        formControlName="drzava"
+      />
+      <mat-error *ngIf="form.get('drzava').invalid">Obavezno polje</mat-error>
+    </mat-form-field>
+    <div class="radio-container">
+      <mat-label>Tip:</mat-label>
+      <mat-radio-group formControlName="tip">
+        <mat-radio-button value="agent">Agent</mat-radio-button>
+        <mat-radio-button value="korisnik">Korisnik</mat-radio-button>
+      </mat-radio-group>
+      <mat-error *ngIf="form.get('tip').invalid">Obavezno polje</mat-error>
+    </div>
+    <div class="profilna-container">
+      <p>Profilna slika:</p>
+      <input type="file" (change)="dodataSlika($event)" />
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">
+      Registracija
+    </button>
+  </form>
+  <p class="poruka">{{ poruka }}</p>
+</mat-card>
+</div>

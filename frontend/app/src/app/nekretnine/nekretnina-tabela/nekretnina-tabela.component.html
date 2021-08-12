@@ -1,0 +1,53 @@
+<div *ngIf="nekretnina">
+  <h2>{{ nekretnina.naziv }}</h2>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Adresa: </b>{{ nekretnina.adresa }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Opstina: </b>{{ nekretnina.opstina }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Grad: </b>{{ nekretnina.grad }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Kategorija: </b> {{ nekretnina.kategorija }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p>
+      <b>Spratnost: </b> {{ nekretnina.brojSprata }}/{{
+        nekretnina.brojSpratova
+      }}
+    </p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Kvadratura: </b> {{ nekretnina.kvadratura }}m2</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Broj soba: </b> {{ nekretnina.brojSoba }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p *ngIf="nekretnina.imaNamestaj"><b>Namestena: </b> Da</p>
+    <p *ngIf="!nekretnina.imaNamestaj"><b>Namestena: </b> Ne</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Transakcija: </b> {{ nekretnina.transakcija }}</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Cena: </b>{{ nekretnina.cena }}$</p>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <p><b>Vlasnik: </b> {{ nekretnina.vlasnik }}</p>
+  </div>
+  <mat-divider></mat-divider>
+</div>

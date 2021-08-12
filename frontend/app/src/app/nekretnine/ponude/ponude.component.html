@@ -1,0 +1,33 @@
+<main>
+  <h2 style="text-align: center;">{{poruka}}</h2>
+  <div id="nekretnine">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor='let n of nekretnine'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{n.naziv}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+        <p *ngIf='n.ponude.length > 0'>Ponude: </p>
+        <p *ngIf='n.ponude.length == 0'>Trenutno nema ponuda.</p>
+        <div *ngFor='let ponuda of n.ponude'>
+          <mat-divider></mat-divider>
+          <ul>
+            <li>Kupac: {{ponuda.kupac}}</li>
+            <li>Placanje: {{ponuda.placanje}}</li>
+            <li *ngIf='ponuda.datumOd && ponuda.datumDo'>Period: {{prettyPrintDatum(ponuda.datumOd)}}-{{prettyPrintDatum(ponuda.datumDo)}}</li>
+            <li>Status: {{ponuda.status}}</li>
+          </ul>
+          <button mat-button color="primary" (click)='potvrdiPonudu(n._id, ponuda.id)' [disabled]="ponuda.status !== 'prihvacena'">Potvrdi</button>
+          <button mat-button color="primary" (click)='odbijPonudu(n._id, ponuda.id)' [disabled]="ponuda.status !== 'prihvacena'">Odbij</button>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  </div>
+</main>
+
+
+

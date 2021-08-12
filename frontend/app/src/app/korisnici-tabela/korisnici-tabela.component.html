@@ -1,0 +1,28 @@
+<table id="korisnici" *ngIf='korisnici && korisnici.length > 0'>
+  <tr>
+    <th>Ime</th>
+    <th>Korisnicko ime</th>
+    <th>E-mail</th>
+    <th>Lozinka</th>
+    <th>Grad</th>
+    <th>Drzava</th>
+    <th>Tip</th>
+    <th>Status</th>
+    <th>Odobri</th>
+    <th>Obrisi</th>
+    <th>Izmena</th>
+  </tr>
+  <tr *ngFor='let k of korisnici'>
+    <td>{{k.ime}} {{k.prezime}}</td>
+    <td>{{k.korime}}</td>
+    <td>{{k.email}}</td>
+    <td>{{k.lozinka}}</td>
+    <td>{{k.grad}}</td>
+    <td>{{k.drzava}}</td>
+    <td>{{k.tip}}</td>
+    <td>{{k.status}}</td>
+    <td><button mat-button color="primary" (click)="odobriKorisnika(k.korime, k.tip)" *ngIf='k.status !== k.tip'>Odobri</button></td>
+    <td><button mat-button color="primary" (click)='obrisiKorisnika(k.korime)'>Obrisi</button></td>
+    <td><button mat-button color="primary" [routerLink]="['/admin/profil', k.korime]">Izmeni</button></td>
+  </tr>
+</table>

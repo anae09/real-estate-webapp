@@ -1,0 +1,42 @@
+/* main {
+  margin-top: 50px;
+} */
+
+#sidebar {
+  text-align: center;
+}
+
+#sidebar button {
+  margin-top: 20px;
+}
+
+#profileImg {
+  width: 100%;
+  margin: auto;
+}
+
+table, tr{
+  width: 80%;
+  background-color: white;
+
+}
+
+
+th, td {
+  padding: 15px 0px;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+th {
+  color: #969292;
+}
+
+#promena-slike {
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.izmena {
+  margin: 0px 5px;
+}

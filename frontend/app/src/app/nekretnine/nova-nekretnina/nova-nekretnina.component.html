@@ -1,0 +1,135 @@
+<mat-card>
+  <h2>Dodaj nekretninu</h2>
+  <form [formGroup]="form" (submit)="dodajNekretninu()">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="naslov"
+        placeholder="Kratak deskriptivan naziv"
+        formControlName="naziv"
+      />
+      <mat-error *ngIf="form.get('naziv').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="adresa"
+        placeholder="Ulica i broj"
+        formControlName="adresa"
+      />
+      <mat-error *ngIf="form.get('adresa').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="opstina"
+        placeholder="Opstina"
+        formControlName="opstina"
+      />
+      <mat-error *ngIf="form.get('opstina').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="grad"
+        placeholder="Grad"
+        formControlName="grad"
+      />
+      <mat-error *ngIf="form.get('grad').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="brojSpratova"
+        min="1"
+        placeholder="Broj spratova"
+        formControlName="brojSpratova"
+      />
+      <mat-error *ngIf="form.get('brojSpratova').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="brojSprata"
+        min="0"
+        placeholder="Broj sprata (za kuce isto kao broj spratova)"
+        formControlName="brojSprata"
+      />
+      <mat-error *ngIf="form.get('brojSprata').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="kvadratura"
+        min="1"
+        placeholder="Kvadratura"
+        formControlName="kvadratura"
+      />
+      <mat-error *ngIf="form.get('kvadratura').invalid"
+        >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="brojSoba"
+        min="1"
+        placeholder="Broj soba"
+        formControlName="brojSoba"
+      />
+      <mat-error *ngIf="form.get('brojSoba').invalid"
+      >Obavezno polje</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="cena"
+        placeholder="Cena [$]"
+        formControlName="cena"
+      />
+      <mat-error *ngIf="form.get('cena').invalid"
+      >Obavezno polje</mat-error>
+    </mat-form-field>
+    <div class="radio-container">
+      <mat-label>Namestena: </mat-label>
+      <mat-radio-group formControlName="imaNamestaj">
+        <mat-radio-button value='true'>Da</mat-radio-button>
+        <mat-radio-button value='false'>Ne</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="radio-container">
+      <mat-label>Kategorija: </mat-label>
+      <mat-radio-group formControlName="kategorija">
+        <mat-radio-button value="Kuca">Kuca</mat-radio-button>
+        <mat-radio-button value="Stan">Stan</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="radio-container">
+      <mat-label>Transakcija: </mat-label>
+      <mat-radio-group formControlName="transakcija">
+        <mat-radio-button value="Izdavanje">Izdavanje</mat-radio-button>
+        <mat-radio-button value="Prodaja">Prodaja</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="fajlovi-container">
+      <p>Slike/Video:</p>
+      <input type="file" (change)="dodatiFajlovi($event)" multiple/>
+    </div>
+    <button mat-raised-button color="primary" type="submit">Dodaj</button>
+    <p style="color:red; padding-top: 7px;">{{poruka}}</p>
+  </form>
+</mat-card>

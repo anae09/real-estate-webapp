@@ -1,0 +1,39 @@
+<main>
+  <mat-card>
+    <h2>Definisi procenat</h2>
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="prodaja"
+          name="prodaja"
+          placeholder="Procenat prodaje %"
+          max="100"
+          min="0"
+          required
+        />
+        <mat-error>Neispravni podaci</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="izdavanje"
+          name="izdavanje"
+          placeholder="Procenat izdavanja %"
+          max="100"
+          min="0"
+          required
+        />
+        <mat-error>Neispravni podaci</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="postaviProcenat()">Potvrdi</button>
+    </form>
+    <!-- {{prodaja}}/{{izdavanje}} -->
+    <p class="poruka">{{poruka}}</p>
+  </mat-card>
+</main>
+  <app-grafici></app-grafici>
+
+

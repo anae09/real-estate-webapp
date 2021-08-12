@@ -1,0 +1,176 @@
+<div class="row">
+  <div class="column">
+    <p style="color: red">{{ poruka }}</p>
+    <table *ngIf="nekretnina">
+      <tr *ngFor="let slika of nekretnina.slike">
+        <td><img src="{{ slika }}" /></td>
+        <td>
+          <button mat-stroked-button color="warn" (click)="ukloniSliku(slika)">
+            <mat-icon>delete</mat-icon>Ukloni
+          </button>
+        </td>
+      </tr>
+      <tr *ngFor="let video of nekretnina.video">
+        <td>
+          <video controls muted>
+            <source src="{{ video }}" type="video/mp4" />
+          </video>
+        </td>
+        <td>
+          <button mat-stroked-button color="warn" (click)="ukloniVideo(video)">
+            <mat-icon>delete</mat-icon>Ukloni
+          </button>
+        </td>
+      </tr>
+    </table>
+    <form [formGroup]="form" (submit)="dodajFajlove()">
+      <div class="fajlovi-container">
+        <p>Slike/video snimci:</p>
+        <input type="file" (change)="dodatiFajlovi($event)" multiple />
+      </div>
+      <button mat-flat-button color="primary" type="submit">Dodaj</button>
+    </form>
+  </div>
+  <!---------------------------------------------------------------->
+  <div class="column">
+    <mat-card *ngIf='formaPodaci'>
+      <h2>Azuriraj podatke</h2>
+      <form [formGroup]="formaPodaci" (submit)="azurirajPodatke()">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            name="naslov"
+            placeholder="Kratak deskriptivan naziv"
+            formControlName="naziv"
+          />
+          <mat-error *ngIf="formaPodaci.get('naziv').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            name="adresa"
+            placeholder="Ulica i broj"
+            formControlName="adresa"
+          />
+          <mat-error *ngIf="formaPodaci.get('adresa').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            name="opstina"
+            placeholder="Opstina"
+            formControlName="opstina"
+          />
+          <mat-error *ngIf="formaPodaci.get('opstina').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            name="grad"
+            placeholder="Grad"
+            formControlName="grad"
+          />
+          <mat-error *ngIf="formaPodaci.get('grad').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            name="brojSpratova"
+            min="1"
+            placeholder="Broj spratova"
+            formControlName="brojSpratova"
+          />
+          <mat-error *ngIf="formaPodaci.get('brojSpratova').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            name="brojSprata"
+            min="0"
+            placeholder="Broj sprata"
+            formControlName="brojSprata"
+          />
+          <mat-error *ngIf="formaPodaci.get('brojSprata').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            name="kvadratura"
+            min="1"
+            placeholder="Kvadratura"
+            formControlName="kvadratura"
+          />
+          <mat-error *ngIf="formaPodaci.get('kvadratura').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            name="brojSoba"
+            min="1"
+            placeholder="Broj soba"
+            formControlName="brojSoba"
+          />
+          <mat-error *ngIf="formaPodaci.get('brojSoba').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="number"
+            name="cena"
+            placeholder="Cena [$]"
+            formControlName="cena"
+          />
+          <mat-error *ngIf="formaPodaci.get('cena').invalid"
+            >Obavezno polje</mat-error
+          >
+        </mat-form-field>
+        <div class="radio-container">
+          <mat-label>Namestena: </mat-label>
+          <mat-radio-group formControlName="imaNamestaj">
+            <mat-radio-button value="true">Da</mat-radio-button>
+            <mat-radio-button value="false">Ne</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="radio-container">
+          <mat-label>Kategorija: </mat-label>
+          <mat-radio-group formControlName="kategorija">
+            <mat-radio-button value="Kuca">Kuca</mat-radio-button>
+            <mat-radio-button value="Stan">Stan</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="radio-container">
+          <mat-label>Transakcija: </mat-label>
+          <mat-radio-group formControlName="transakcija">
+            <mat-radio-button value="Izdavanje">Izdavanje</mat-radio-button>
+            <mat-radio-button value="Prodaja">Prodaja</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Potvrdi</button>
+      </form>
+    </mat-card>
+  </div>
+</div>

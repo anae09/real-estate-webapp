@@ -1,0 +1,61 @@
+<main *ngIf='korisnikProfil'>
+  <mat-grid-list cols="4" rowHeight="2:3">
+    <!-- LEVI DEO -->
+    <mat-grid-tile [colspan]="1" [rowspan]="1" id="sidebar">
+      <div class="flex-container">
+        <div>
+          <img src={{korisnikProfil.profilnaPath}} id="profileImg" />
+        </div>
+        <div>
+          <button mat-flat-button color="primary" (click)="prikaziPromenuSlike()" class="izmena">Izmeni sliku</button>
+          <button mat-flat-button color="primary" [routerLink]="['izmena-sifre', korisnikProfil.korime]" class="izmena">Promeni sifru</button>
+        </div>
+        <div *ngIf='promenaSlike && form' id="promena-slike">
+          <form [formGroup]="form">
+            <input type="file" (change)="dodataSlika($event)" />
+            <button mat-stroked-button color="primary" (click)="promeniSliku()">Potvrdi</button>
+            {{poruka}}
+          </form>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <!-- DESNI DEO -->
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+      <table>
+        <tr>
+          <th>Ime</th>
+          <td>{{korisnikProfil.ime}}</td>
+        </tr>
+        <tr>
+          <th>Prezime</th>
+          <td>{{korisnikProfil.prezime}}</td>
+        </tr>
+        <tr>
+          <th>Korisnicko ime</th>
+          <td>{{korisnikProfil.korime}}</td>
+        </tr>
+        <tr>
+          <th>Lozinka</th>
+          <td>{{korisnikProfil.lozinka}}</td>
+        </tr>
+        <tr>
+          <th>E-mail</th>
+          <td>{{korisnikProfil.email}}</td>
+        </tr>
+        <tr>
+          <th>Grad</th>
+          <td>{{korisnikProfil.grad}}</td>
+        </tr>
+        <tr>
+          <th>Drzava</th>
+          <td>{{korisnikProfil.drzava}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: right;">
+            <button mat-flat-button color="primary" [routerLink]="['izmena-profila', korisnikProfil.korime]" class="izmena">Azuriraj podatke</button>
+          </td>
+        </tr>
+      </table>
+    </mat-grid-tile>
+  </mat-grid-list>
+</main>

@@ -1,0 +1,11 @@
+<swiper [navigation]="true" class="mySwiper" *ngIf='nekretnina'>
+  <ng-template swiperSlide *ngFor='let slikaPath of nekretnina.slike'><img src={{slikaPath}}></ng-template>
+  <ng-template swiperSlide *ngFor='let videoPath of nekretnina.video'>
+    <video autoplay [muted]="true" loop controls>
+      <source src={{videoPath}} type="video/mp4">
+    </video>
+  </ng-template>
+  <!-- <ng-template swiperSlide><img src="/assets/realestate2.jpg"></ng-template
+  ><ng-template swiperSlide><img src="/assets/realestate3.jpg"></ng-template
+  > -->
+</swiper>

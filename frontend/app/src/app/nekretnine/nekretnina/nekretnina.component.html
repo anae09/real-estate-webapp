@@ -1,0 +1,45 @@
+<section class="container" *ngIf='nekretnina'>
+  <div class="left-half">
+    <app-galerija></app-galerija>
+    <mat-card class="nekretnina-card" *ngIf='nekretnina.transakcija === "prodaja" || nekretnina.transakcija === "Prodaja"'>
+      <mat-card-title>Prodaja</mat-card-title>
+      <mat-card-content>
+        <form>
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="placanje" name="placanje">
+            <mat-radio-button value="gotovina">Gotovina</mat-radio-button>
+            <mat-radio-button value="kredit">Kredit</mat-radio-button>
+          </mat-radio-group>
+          <p *ngIf='placanje === "kredit"' style="margin: 0 auto; padding-top:10px">Ucesce: {{nekretnina.cena * 0.2}}$</p>
+          <button class="nekretnina-dugme" mat-raised-button color="primary" (click)='napraviPonudu("prodaja")'>Kupi</button>
+          <p style="color:red">{{poruka}}</p>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="nekretnina-card" *ngIf='nekretnina.transakcija === "Izdavanje" || nekretnina.transakcija === "izdavanje"'>
+      <mat-card-title>Iznajmljivanje</mat-card-title>
+      <mat-card-content>
+        <form>
+        <mat-form-field appearance="fill">
+          <mat-label>Uneti period</mat-label>
+          <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [dateFilter]="myFilter" [min]='startDate'>
+            <input matStartDate formControlName="start"  placeholder="Datum od" >
+            <input matEndDate formControlName="end" placeholder="Datum do">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <button class="nekretnina-dugme" mat-raised-button color="primary" (click)='napraviPonudu("izdavanje")'>Iznajmi</button>
+        <p style="color:red">{{poruka}}</p>
+      </form>
+      <!-- <p>Start: {{range.value | json}}</p> -->
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="right-half">
+    <app-nekretnina-tabela></app-nekretnina-tabela>
+  </div>
+</section>
+
+<main>
+  <app-kontakt></app-kontakt>
+</main>

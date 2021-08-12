@@ -1,0 +1,23 @@
+<table id="nekretnine" *ngIf='nekretnine'>
+  <tr>
+    <th>Naslov</th>
+    <th>Status</th>
+    <th>Aktivna</th>
+    <th>Promovisana</th>
+    <th>Pregled</th>
+    <th>Odobri</th>
+    <th>Promocija</th>
+    <th>Ukloni</th>
+  </tr>
+  <tr *ngFor='let n of nekretnine'>
+    <td>{{n.naziv}}</td>
+    <td>{{n.status}}</td>
+    <td>{{n.aktivna ? "Da" : "Ne"}}</td>
+    <td>{{n.promovisana ? 'Da' : 'Ne'}}</td>
+    <td><button mat-button color="primary" routerLink='nekretnina/{{n._id}}'>Pregled</button></td>
+    <td><button mat-button color="primary" *ngIf='n.status !== "odobrena"' (click)='odobriNekretninu(n._id)'>Odobri</button></td>
+    <td *ngIf='!n.promovisana'><button mat-button color="primary" (click)='promovisiNekretninu(n._id)' [disabled]="!n.aktivna">Promovisi</button></td>
+    <td *ngIf='n.promovisana'><button mat-button color="primary" (click)='ukloniPromociju(n._id)'>Ukloni promociju</button></td>
+    <td><button mat-button color="primary" (click)='ukloniNekretninu(n._id)'>Ukloni</button></td>
+  </tr>
+</table>

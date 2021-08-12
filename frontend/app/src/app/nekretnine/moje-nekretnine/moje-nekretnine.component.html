@@ -1,0 +1,49 @@
+<main>
+  <div id="nekretnine">
+  <mat-accordion *ngIf='mojeNekretnine'>
+    <mat-expansion-panel *ngFor='let n of mojeNekretnine'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{n.naziv}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Status: {{n.status}}</p>
+      <p>Aktivna: {{n.aktivna? "Da": "Ne"}}</p>
+      <div *ngIf='n.iznajmljivanje.length > 0'>
+        <p>Periodi izdavanja:</p>
+        <mat-divider></mat-divider>
+        <ul>
+          <li *ngFor='let p of n.iznajmljivanje'>{{prettyPrintDatum(p.datumOd)}}-{{prettyPrintDatum(p.datumDo)}}</li>
+        </ul>
+      </div>
+      <div>
+        <p *ngIf='n.ponude.length > 0'>Ponude: </p>
+        <p *ngIf='n.ponude.length == 0'>Trenutno nema ponuda.</p>
+        <div *ngFor='let ponuda of n.ponude'>
+          <mat-divider></mat-divider>
+          <ul>
+            <li>Kupac: {{ponuda.kupac}}</li>
+            <li>Placanje: {{ponuda.placanje}}</li>
+            <li *ngIf='ponuda.datumOd && ponuda.datumDo'>Period: {{prettyPrintDatum(ponuda.datumOd)}}-{{prettyPrintDatum(ponuda.datumDo)}}</li>
+            <li>Status: {{ponuda.status}}</li>
+          </ul>
+          <button mat-button color="primary" (click)='prihvatiPonudu(n._id, ponuda.id, ponuda.kupac)' [disabled]="ponuda.status !== 'cekanje' || !n.aktivna">Prihvati</button>
+          <button mat-button color="primary" (click)='ukloniPonudu(n._id, ponuda.id)'>Ukloni</button>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+      <mat-action-row>
+        <button mat-stroked-button color="primary" routerLink='nekretnina/{{n._id}}'>Pregled</button>
+        <button mat-stroked-button color="primary" routerLink='nekretnina-izmena/{{n._id}}' [disabled]="!n.aktivna">Izmeni</button>
+        <button mat-stroked-button color="primary" (click)='ukloniNekretninu(n._id)'>Obrisi</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<button mat-raised-button color="primary" id="novo_dume" (click)='prikaziFormuNekretnine()'>Dodaj novo</button>
+<div *ngIf='prikaziFormu' class="nova-nekretnina">
+  <app-nova-nekretnina></app-nova-nekretnina>
+</div>
+</main>
+
+

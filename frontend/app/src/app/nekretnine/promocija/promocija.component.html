@@ -1,0 +1,23 @@
+<swiper
+  [slidesPerView]="3"
+  [spaceBetween]="30"
+  [navigation]="true"
+  [autoplay]="{
+    delay: 2500,
+    disableOnInteraction: false
+  }"
+  [pagination]="{
+    clickable: true
+  }"
+  class="mySwiper"
+>
+<div *ngIf='ulogovanKorisnik.status !== "gost"'>
+  <ng-template swiperSlide *ngFor='let n of promovisaneNekretnine'><a routerLink='nekretnina/{{n._id}}'><img src={{n.slike[0]}}></a></ng-template>
+</div>
+<div *ngIf='ulogovanKorisnik.status === "gost"'>
+  <ng-template swiperSlide *ngFor='let n of promovisaneNekretnine'><img src={{n.slike[0]}}></ng-template>
+</div>
+<!-- <ng-template swiperSlide><img src="/assets/promo2.jpg" /></ng-template>
+<ng-template swiperSlide><img src="/assets/promo3.jpeg" /></ng-template>
+<ng-template swiperSlide><img src="/assets/promo1.jpg" /></ng-template> -->
+</swiper>

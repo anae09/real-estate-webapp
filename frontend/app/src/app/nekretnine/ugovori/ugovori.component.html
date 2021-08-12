@@ -1,0 +1,25 @@
+<main>
+  <div id="nekretnine">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor='let n of nekretnine'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{n.naziv}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Vlasnik: {{n.vlasnik}}</p>
+      <p>Cena: {{n.cena}}$</p>
+      <div *ngIf='n.aktivna === false'>
+        <p>Prihod: {{n.vlasnik === "agencija" ? n.cena : n.cena * procenatProdaje * 1.0/100}}$</p>
+      </div>
+      <div *ngIf='n.iznajmljivanje.length > 0'>
+        <ul *ngFor='let izd of n.iznajmljivanje'>
+          <li>Period: {{prettyPrintDatum(izd.datumOd)}}-{{prettyPrintDatum(izd.datumDo)}}</li>
+          <li>Ukupna cena: {{cenaPoDanu(n.cena) * brojDana(izd.datumOd, izd.datumDo)}}$</li>
+          <li>Prihod: {{n.vlasnik === "agencija"? cenaPoDanu(n.cena) * brojDana(izd.datumOd, izd.datumDo) : cenaPoDanu(n.cena) * brojDana(izd.datumOd, izd.datumDo) * procenatIzdavanja *1.0 / 100}}$</li>
+        </ul>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  </div>
+</main>
